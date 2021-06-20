@@ -7,7 +7,7 @@
       yum: name=httpd state=present
 
     - name: copy index to /var/www/html
-      copy: source=./index.html destination=/var/www/html
+      copy: src=index.html dest=/var/www/html
         
 
     - name: start the service 
