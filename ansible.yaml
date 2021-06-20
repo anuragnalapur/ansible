@@ -1,1 +1,14 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Install httpd service
+      yum: name=httpd state=present
 
+    - name: copy index to /var/www/html
+      copy: source=./index.html destination=/var/www/html
+        
+
+    - name: start the service 
+      service: name=httpd state=started
